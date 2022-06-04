@@ -352,11 +352,12 @@
 
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/button_add_fiche"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/Mix"
-            android:text="Ajouter" />
+    <Button
+        android:id="@+id/button_add_fiche"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-40dp"
+        android:backgroundTint="@color/Mix"
+        android:text="Ajouter" />
 
 </LinearLayout>

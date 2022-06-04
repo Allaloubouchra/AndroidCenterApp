@@ -12,6 +12,8 @@ class SignIn : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var button_login: Button
         lateinit var button_create_account: Button
+        lateinit var button_newSurvey: Button
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
         supportActionBar?.hide()
@@ -20,6 +22,10 @@ class SignIn : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         button_create_account = findViewById(R.id.CreateAccount)
         button_create_account.setOnClickListener { startActivity(Intent(this, SignIn::class.java)) }
+
+        button_newSurvey = findViewById(R.id.CreateAccount)
+        button_newSurvey.setOnClickListener { startActivity(Intent(this,Survey::class.java))}
+
 
         val email = findViewById<View>(R.id.email) as EditText
         val password = findViewById<View>(R.id.password) as EditText
