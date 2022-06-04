@@ -14,7 +14,7 @@
         android:theme="@style/Theme.CenterApp"
         tools:targetApi="31">
         <activity
-            android:name=".ic_profile"
+            android:name=".Survey"
             android:exported="false" />
         <activity
             android:name=".AddSurvey"

@@ -3,118 +3,149 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/main_header_selector">
-   // tools:context=".controller.FirstSigninActivity"
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/firstSignFullName"
-        android:layout_width="299dp"
-        android:layout_height="46dp"
-        android:layout_margin="20dp"
-        android:paddingLeft="20dp"
-        android:background="@drawable/rounded_edittext"
-        android:textColorHint="#9E9E9E"
-        android:textColor="#000000"
-        android:ems="10"
-        android:hint="Full Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="227dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/firstSignBirthDay"
-        android:layout_width="299dp"
-        android:layout_height="46dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="72dp"
-        android:background="@drawable/rounded_edittext"
-        android:ems="10"
-        android:hint="Birthday"
-        android:inputType="textPersonName"
-        android:paddingLeft="20dp"
-        android:textColor="#000000"
-        android:textColorHint="#9E9E9E"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstSignFullName" />
+        <LinearLayout
+            android:id="@+id/linearlayout1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/rectangle_round"
+            android:elevation="6dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/firstSignTel"
-        android:layout_width="299dp"
-        android:layout_height="46dp"
-        android:layout_margin="20dp"
-        android:background="@drawable/rounded_edittext"
-        android:ems="10"
-        android:hint="Tel"
-        android:inputType="number"
-        android:paddingLeft="20dp"
-        android:textColor="#000000"
-        android:textColorHint="#9E9E9E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstSignBirthDay"
-        app:layout_constraintVertical_bias="0.014" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="299dp"
-        android:layout_height="46dp"
-        android:layout_margin="20dp"
-        android:background="#ffffff"
-        android:paddingLeft="20dp"
-        android:spinnerMode="dropdown"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstSignTel"
-        app:layout_constraintVertical_bias="0.163" />
+        </LinearLayout>
 
-    <Spinner
-        android:id="@+id/specialite_spinner"
-        android:layout_width="299dp"
-        android:layout_height="46dp"
-        android:layout_margin="20dp"
-        android:background="#ffffff"
-        android:paddingLeft="20dp"
-        android:spinnerMode="dropdown"
-        android:textColor="#000000"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.163" />
+        <EditText
+            android:id="@+id/nom"
+            android:layout_width="300dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginLeft="15dp"
+            android:inputType="text"
+            android:hint="Nom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.184"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/prenom"
+            android:layout_width="300dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginLeft="15dp"
+            android:inputType="text"
+            android:hint="Prénom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.184"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:textSize="24sp"
-        android:text="Choose your role"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstSignTel" />
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="83dp"
+            android:layout_height="62dp"
+            android:text="Genre"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.118"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/confirmeBtn"
-        android:layout_width="260dp"
-        android:layout_height="46dp"
-        android:background="#22BE87"
-        android:text="CONFIRM"
-        android:textColor="#ffffff"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.479"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/specialite_spinner"
-        app:layout_constraintVertical_bias="0.349" />
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="205dp"
+            android:layout_height="62dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="-82dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.834"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="H"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:onClick="onRadioButtonClicked"
+                android:text="F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.655"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </RadioGroup>
+        <EditText
+            android:id="@+id/Phone"
+            android:layout_width="300dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:hint=" Numéro de tél"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.194"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="300dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:layout_marginLeft="15dp"
+            android:hint="Adresse"
+            android:inputType="text"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.194"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/confirmeBtn"
+            android:layout_width="374dp"
+            android:height="46dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="90dp"
+            android:backgroundTint="@color/Mix"
+            android:text="CONFIRMER"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.479"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/specialite_spinner"
+            app:layout_constraintVertical_bias="0.349" />
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

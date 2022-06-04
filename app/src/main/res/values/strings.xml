@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CenterApp</string>
+    <string name="col1">Questions</string>
+    <string name="col2">OUI</string>
+    <string name="col3">NON</string>
+    <string-array name="array_role">
+        <item>Docteur</item>
+        <item>réceptionniste</item>
+    </string-array>
+
 </resources>
