@@ -34,24 +34,25 @@
                 tools:layout_editor_absoluteX="145dp"
                 tools:layout_editor_absoluteY="171dp" />
         </LinearLayout>
+
         <EditText
             android:id="@+id/email"
             android:layout_width="350dp"
             android:layout_height="46dp"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="350dp"
             android:layout_height="46dp"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:hint="Mot de passe"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,33 +62,46 @@
             android:layout_width="350dp"
             android:layout_height="46dp"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:hint="Confirmer mot de passe"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
-
-        <Spinner
-            android:id="@+id/role"
-            android:layout_width="350dp"
-            android:layout_height="46dp"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rôle"
+            android:textSize="20dp"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="172dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:entries="@array/array_role"
-            android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="30dp"/>
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.539" />
+            android:layout_marginStart="45dp">
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Docteur"/>
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Réceptionniste " />
+        </RadioGroup>
 
         <Button
             android:id="@+id/CreateAccount"
-            android:layout_width="397dp"
-            android:layout_height="46dp"
+            android:layout_width="399dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/Mix"
             android:text="créer compte"
             android:textColor="#ffffff"
@@ -95,19 +109,12 @@
             tools:layout_editor_absoluteX="75dp"
             tools:layout_editor_absoluteY="553dp" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="49dp"/>
-
         <Button
             android:id="@+id/LoginBtn"
             android:layout_width="396dp"
-            android:layout_height="46dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/Mix"
             android:text="Se connecter"
             android:textColor="#ffffff"

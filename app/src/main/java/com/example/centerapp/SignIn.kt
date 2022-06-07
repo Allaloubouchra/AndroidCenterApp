@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 
-class SignIn : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class SignIn : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var button_login: Button
@@ -17,6 +17,9 @@ class SignIn : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
         supportActionBar?.hide()
+        var  radioButton1 : RadioButton
+        var  RadioGroup1 :  RadioGroup
+
         button_login = findViewById(R.id.LoginBtn)
         button_login.setOnClickListener { startActivity(Intent(this, AddSurvey::class.java)) }
 
@@ -30,25 +33,17 @@ class SignIn : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         val email = findViewById<View>(R.id.email) as EditText
         val password = findViewById<View>(R.id.password) as EditText
         val confim_password = findViewById<View>(R.id.password) as EditText
+        radioButton1 = findViewById(R.id.radioButton1)
+        RadioGroup1 = findViewById(R.id.radioGroup1)
 
-        val spinner: Spinner = findViewById(R.id.role)
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.array_role,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinner.adapter = adapter
-            spinner.onItemSelectedListener = this
+        val selectedId1: Int =
+            RadioGroup1.getCheckedRadioButtonId() // si aucun button radio n'est coché, cette fonction retourne -1
+        if (selectedId1!= -1) {
+            val radioButton1: RadioButton
+            radioButton1 = findViewById<View>(selectedId1) as RadioButton
         }
 
-    }
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val spinner: Spinner = findViewById(R.id.role)
-        spinner.onItemSelectedListener = this
-    }
 
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("Not yet implemented")
+
+        }
     }
-}
