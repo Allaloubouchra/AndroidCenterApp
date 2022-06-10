@@ -3,9 +3,35 @@
     <string name="col1">Questions</string>
     <string name="col2">OUI</string>
     <string name="col3">NON</string>
-    <string-array name="array_role">
-        <item>Docteur</item>
-        <item>réceptionniste</item>
+
+    <string-array name="array_temp">
+        <item>Fébrile</item>
+        <item>Apyrétique</item>
     </string-array>
+
+    <string-array name="array_freq_cardi">
+        <item>Tachycardie</item>
+        <item>Normal</item>
+        <item>Bradycardie</item>
+    </string-array>
+
+    <string-array name="array_freq_respi">
+        <item>Eupneique</item>
+        <item>Dyspnée</item>
+        <item>Bradypnée</item>
+    </string-array>
+
+    <string-array name="array_tansion">
+        <item>Hypertension</item>
+        <item>normal</item>
+        <item>Hypotension</item>
+    </string-array>
+
+    <string-array name="array_satura">
+        <item>Bonne saturation</item>
+        <item>Désaturation</item>
+    </string-array>
+
+
 
 </resources>

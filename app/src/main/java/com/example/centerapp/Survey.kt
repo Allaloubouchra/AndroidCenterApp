@@ -2,11 +2,12 @@ package com.example.centerapp
 
 import android.os.Bundle
 import android.view.View
-import android.widget.RadioButton
-import android.widget.RadioGroup
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
-class Survey : AppCompatActivity() {
+
+open class Survey : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
          setContentView(R.layout.activity_survey)
@@ -47,11 +48,67 @@ class Survey : AppCompatActivity() {
         }
 
 
+        val spinnerTem: Spinner = findViewById(R.id.spinnerTem)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.array_temp,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerTem.adapter = adapter
+        }
 
 
+        val spinnerFreqCar: Spinner = findViewById(R.id.spinnerFreqCar)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.array_freq_cardi,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerFreqCar.adapter = adapter
+        }
 
+        val spinnerFreqRes: Spinner = findViewById(R.id.spinnerFreqRes)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.array_freq_respi,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerFreqRes.adapter = adapter
+        }
+
+        val spinnertens: Spinner = findViewById(R.id.spinnertens)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.array_tansion,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnertens.adapter = adapter
+        }
+
+         val spinnerSatur: Spinner = findViewById(R.id.spinnerSatur)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.array_satura,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerSatur.adapter = adapter
+        }
 
 
 
     }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        TODO("Not yet implemented")
     }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        TODO("Not yet implemented")
+    }
+}

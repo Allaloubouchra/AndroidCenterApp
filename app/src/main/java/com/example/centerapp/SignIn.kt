@@ -24,10 +24,7 @@ class SignIn : AppCompatActivity() {
         button_login.setOnClickListener { startActivity(Intent(this, AddSurvey::class.java)) }
 
         button_create_account = findViewById(R.id.CreateAccount)
-        button_create_account.setOnClickListener { startActivity(Intent(this, SignIn::class.java)) }
-
-        button_newSurvey = findViewById(R.id.CreateAccount)
-        button_newSurvey.setOnClickListener { startActivity(Intent(this,Survey::class.java))}
+        button_create_account.setOnClickListener { startActivity(Intent(this, AddSurvey::class.java)) }
 
 
         val email = findViewById<View>(R.id.email) as EditText
