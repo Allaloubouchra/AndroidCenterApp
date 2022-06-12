@@ -403,7 +403,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
-            android:layout_marginEnd="440dp"
+            android:layout_marginEnd="482dp"
             android:layout_marginBottom="7dp"
             android:backgroundTint="@color/Mix"
             android:fontFamily="@font/courgette"
