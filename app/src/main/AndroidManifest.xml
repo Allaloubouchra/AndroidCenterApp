@@ -14,6 +14,11 @@
         android:theme="@style/Theme.CenterApp"
         tools:targetApi="31">
         <activity
+            android:name=".ListRecep"
+            android:exported="false"
+            android:label="@string/title_activity_list_recep"
+            android:theme="@style/Theme.CenterApp.NoActionBar" />
+        <activity
             android:name=".Survey"
             android:exported="false" />
         <activity

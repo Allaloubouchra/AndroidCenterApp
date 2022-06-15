@@ -1,5 +1,6 @@
 package com.example.centerapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -9,9 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 open class Survey : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        var button_annuler: Button
          super.onCreate(savedInstanceState)
          setContentView(R.layout.activity_survey)
         supportActionBar?.hide()
+
         var  RadioGroup1 : RadioGroup
         var  radioButton1 :RadioButton
 
@@ -21,6 +24,9 @@ open class Survey : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         var  RadioGroup3 : RadioGroup
         var  radioButton3 :RadioButton
+
+        button_annuler = findViewById(R.id.annuler)
+        button_annuler.setOnClickListener { startActivity(Intent(this,AddSurvey::class.java)) }
 
         RadioGroup1 = findViewById(R.id.radioGroup1)
         RadioGroup2 = findViewById(R.id.radioGroup2)
@@ -99,7 +105,6 @@ open class Survey : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinnerSatur.adapter = adapter
         }
-
 
 
     }
