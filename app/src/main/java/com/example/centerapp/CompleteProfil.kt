@@ -16,9 +16,9 @@ class CompleteProfil : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_complete_profil)
+
         button_to_confirm = findViewById(R.id.confirmeBtn)
         button_to_confirm.setOnClickListener { startActivity(Intent(this,AddSurvey::class.java  )) }
-
 
 
         val nomEditText = findViewById<View>(R.id.nom) as EditText
