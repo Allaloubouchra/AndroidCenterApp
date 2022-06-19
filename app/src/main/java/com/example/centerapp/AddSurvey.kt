@@ -15,6 +15,11 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class AddSurvey : AppCompatActivity() {
+    lateinit var button_newSurvey: Button
+    lateinit var button_log_out: Button
+
+
+
     val TAG: String? = AddSurvey::class.simpleName
     private val getBarCode =
         registerForActivityResult(
@@ -24,21 +29,23 @@ class AddSurvey : AppCompatActivity() {
 
 
     val service: AppointmentService = RetrofitClient.client.create(AppointmentService::class.java)
-
     var barcode: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        lateinit var button_newSurvey: Button
-        lateinit var button_log_out: Button
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_survey)
         supportActionBar?.hide()
 
+        button_log_out = findViewById(R.id.logOut)
+        button_log_out.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
+
+
         button_newSurvey = findViewById(R.id.newSurvey)
         button_newSurvey.setOnClickListener { scanQrCode() }
 
-        button_log_out = findViewById(R.id.logOut)
-        button_log_out.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
+
     }
 
     private fun scanQrCode() {

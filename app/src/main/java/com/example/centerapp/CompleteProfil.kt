@@ -12,6 +12,18 @@ import androidx.appcompat.app.AppCompatActivity
 
 class CompleteProfil : AppCompatActivity() {
     private lateinit var button_to_confirm: Button
+    lateinit var nomEditText: EditText
+    lateinit var prenomEditText: EditText
+    lateinit var nom: EditText
+    lateinit var prenom: EditText
+    lateinit var addressEditText: EditText
+    lateinit var phoneEditText: EditText
+    lateinit var age: EditText
+    lateinit var phone : EditText
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
@@ -21,34 +33,36 @@ class CompleteProfil : AppCompatActivity() {
         button_to_confirm.setOnClickListener { startActivity(Intent(this,AddSurvey::class.java  )) }
 
 
-        val nomEditText = findViewById<View>(R.id.nom) as EditText
+        nomEditText = findViewById<View>(R.id.nom) as EditText
         val nom = nomEditText.text.toString()
 
-        val prenomEditText = findViewById<View>(R.id.prenom) as EditText
+        prenomEditText = findViewById<View>(R.id.prenom) as EditText
         val prenom = prenomEditText.text.toString()
 
-        val phoneEditText = findViewById<View>(R.id.Phone) as EditText
+        phoneEditText = findViewById<View>(R.id.Phone) as EditText
         val age = phoneEditText.text.toString()
 
         val addressEditText = findViewById<View>(R.id.address) as EditText
         val phone = addressEditText.text.toString()
-
-        fun onRadioButtonClicked(view: View) {
-            if (view is RadioButton) {
-                val checked = view.isChecked
-                when (view.getId()) {
-                    R.id.male ->
-                        if (checked) {
-                        }
-                    R.id.female ->
-                        if (checked) {
-                            // Ninjas rule
-                        }
-                }
-            }
-        }
-
+        onRadioButtonClicked( View(this))
 
     }
+
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            val checked = view.isChecked
+            when (view.getId()) {
+                R.id.male ->
+                    if (checked) {
+                    }
+                R.id.female ->
+                    if (checked) {
+                        // Ninjas rule
+                    }
+            }
+        }
+    }
+
+
 
 }

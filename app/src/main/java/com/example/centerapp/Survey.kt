@@ -6,27 +6,31 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.centerapp.models.Appointment
+import java.util.*
 
 
 open class Survey : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
+    lateinit var fulName: EditText
+    lateinit var date: EditText
+    lateinit var button_annuler: Button
+    lateinit var RadioGroup1: RadioGroup
+    lateinit var RadioGroup2: RadioGroup
+    lateinit var RadioGroup3: RadioGroup
+    lateinit var radioButton1: RadioButton
+    lateinit var radioButton2: RadioButton
+    lateinit var radioButton3: RadioButton
+
+
     var appointment: Appointment? = null
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        var button_annuler: Button
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_survey)
         supportActionBar?.hide()
 
-        var RadioGroup1: RadioGroup
-        var radioButton1: RadioButton
-
-        var RadioGroup2: RadioGroup
-        var radioButton2: RadioButton
-
-
-        var RadioGroup3: RadioGroup
-        var radioButton3: RadioButton
 
         button_annuler = findViewById(R.id.annuler)
         button_annuler.setOnClickListener { startActivity(Intent(this, AddSurvey::class.java)) }
@@ -121,6 +125,15 @@ open class Survey : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         }
 
 
+    }
+
+    override fun onResume() {
+        fulName= findViewById(R.id.fullName)
+        date= findViewById(R.id.dateOfBirth)
+        fulName.setText(appointment?.patient?.fullName.toString())
+        date.setText(appointment?.appointmentDate.toString())
+
+        super.onResume()
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

@@ -14,12 +14,19 @@ class SignIn : AppCompatActivity() {
         lateinit var button_create_account: Button
         lateinit var button_newSurvey: Button
 
+        lateinit var radioButton1: RadioButton
+        lateinit var radioButton2: RadioButton
+        lateinit var RadioGroup1: RadioGroup
+
+        lateinit var email : EditText
+        lateinit var password : EditText
+        lateinit var confim_password : EditText
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
         supportActionBar?.hide()
-        var radioButton1: RadioButton
-        var radioButton2: RadioButton
-        var RadioGroup1: RadioGroup
+
 
         radioButton1 = findViewById(R.id.radioButton1)
         radioButton2 = findViewById(R.id.radioButton2)
@@ -39,9 +46,9 @@ class SignIn : AppCompatActivity() {
         }
 
 
-        val email = findViewById<View>(R.id.email) as EditText
-        val password = findViewById<View>(R.id.password) as EditText
-        val confim_password = findViewById<View>(R.id.password) as EditText
+         email = findViewById<View>(R.id.email) as EditText
+         password = findViewById<View>(R.id.password) as EditText
+         confim_password = findViewById<View>(R.id.password) as EditText
 
 
         val selectedId1: Int =
