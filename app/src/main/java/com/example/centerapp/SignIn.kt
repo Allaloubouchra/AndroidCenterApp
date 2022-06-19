@@ -17,9 +17,9 @@ class SignIn : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
         supportActionBar?.hide()
-        var  radioButton1 : RadioButton
-        var  radioButton2 : RadioButton
-        var  RadioGroup1 :  RadioGroup
+        var radioButton1: RadioButton
+        var radioButton2: RadioButton
+        var RadioGroup1: RadioGroup
 
         radioButton1 = findViewById(R.id.radioButton1)
         radioButton2 = findViewById(R.id.radioButton2)
@@ -32,22 +32,11 @@ class SignIn : AppCompatActivity() {
 
         button_create_account = findViewById(R.id.CreateAccount)
         button_create_account.setOnClickListener {
-            when{
+            when {
                 radioButton1.isChecked -> startActivity(Intent(this, AddSurvey::class.java))
-                radioButton2.isChecked-> startActivity(Intent(this, ListRecep::class.java))
+                radioButton2.isChecked -> startActivity(Intent(this, ListRecep::class.java))
             }
-           }
-
-
-
-
-
-
-
-
-
-
-
+        }
 
 
         val email = findViewById<View>(R.id.email) as EditText
@@ -57,12 +46,11 @@ class SignIn : AppCompatActivity() {
 
         val selectedId1: Int =
             RadioGroup1.getCheckedRadioButtonId() // si aucun button radio n'est coché, cette fonction retourne -1
-        if (selectedId1!= -1) {
+        if (selectedId1 != -1) {
             val radioButton1: RadioButton
             radioButton1 = findViewById<View>(selectedId1) as RadioButton
         }
 
 
-
-        }
     }
+}

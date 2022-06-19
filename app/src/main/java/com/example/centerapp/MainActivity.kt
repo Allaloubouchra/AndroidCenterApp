@@ -1,74 +1,71 @@
 package com.example.centerapp
 
+import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.centerapp.models.User
 import com.example.centerapp.rest.RetrofitClient
 import com.example.centerapp.rest.UserService
-import com.google.android.material.textfield.TextInputEditText
+import com.example.centerapp.rest.apiKey
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
+    val TAG: String? = MainActivity::class.simpleName
 
     lateinit var userService: UserService
 
-    private lateinit var unsername : TextInputEditText
-    private lateinit var password : TextInputEditText
+    private lateinit var username: EditText
+    private lateinit var password: EditText
 
-    private lateinit var button_to_login: Button
-    private lateinit var button_to_create_account: Button
+    private lateinit var loginButton: Button
+    private lateinit var createAccountButton: Button
+
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
 
-        val username = findViewById<View>(R.id.userName) as EditText
-        val password = findViewById<View>(R.id.password) as EditText
+        requestPermissions(arrayOf(Manifest.permission.CAMERA), 102)
+
+        sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+
+        username = findViewById<View>(R.id.userName) as EditText
+        password = findViewById<View>(R.id.password) as EditText
+        loginButton = findViewById(R.id.LoginBtn)
+        loginButton.setOnClickListener { login(username.text.toString(), password.text.toString()) }
 
         userService = RetrofitClient.client.create(UserService::class.java)
 
+        createAccountButton = findViewById(R.id.CreateAccount)
+        createAccountButton.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    SignIn::class.java
+                )
+            )
+        }
 
-        button_to_login = findViewById(R.id.LoginBtn)
-        button_to_login.setOnClickListener {
-            fun login(username: String, password: String){
-                userService.login(username,password).enqueue(object : Callback<User>{
-                    override fun onResponse(call: Call<User>, response: Response<User>) {
-                        if(response.isSuccessful)
-                        {   val user = response.body()!!
-                            if (user.user_type == "RECEPTIONIST")
-                               startActivity(Intent(applicationContext,ListRecep::class.java))
-                            if (user.user_type == "DOCTOR")
-                               startActivity(Intent(applicationContext,AddSurvey::class.java))
-                        }
-                    }
-
-                    override fun onFailure(call: Call<User>, t: Throwable) {
-                        TODO("Not yet implemented")
-                    }
-                })
-
-
-            }
-            }
-
-
-        button_to_create_account = findViewById(R.id.CreateAccount)
-        button_to_create_account.setOnClickListener { startActivity(Intent(this,SignIn::class.java))}
-
-       username.addTextChangedListener(object : TextWatcher {
+        username.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable) {
-                button_to_login.setEnabled(!s.toString().isEmpty())
+                loginButton.setEnabled(!s.toString().isEmpty())
             }
         })
 
@@ -76,17 +73,43 @@ class MainActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable) {
-                button_to_login.setEnabled(!s.toString().isEmpty())
+                loginButton.setEnabled(!s.toString().isEmpty())
             }
+        })
+
+        if (checkLoggedIn()) {
+            apiKey = sharedPreferences.getString("api_key", null)
+            startActivity(Intent(applicationContext, AddSurvey::class.java))
         }
-        )
+    }
+
+    private fun checkLoggedIn(): Boolean {
+        return sharedPreferences.getString("api_key", null) != null
+    }
+
+    private fun setLoggedIn(token: String) {
+        sharedPreferences.edit().putString("api_key", token).apply()
+    }
+
+    private fun login(username: String, password: String) {
+        userService.login(mapOf("username" to username, "password" to password))
+            .enqueue(object : Callback<User> {
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    if (response.isSuccessful) {
+                        val user = response.body()!!
+                        setLoggedIn(user.token)
+                        apiKey = user.token
+                        if (user.user_type == "R")
+                            startActivity(Intent(applicationContext, ListRecep::class.java))
+                        if (user.user_type == "D")
+                            startActivity(Intent(applicationContext, AddSurvey::class.java))
+                    }
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Toast.makeText(applicationContext, "Login Failed", Toast.LENGTH_SHORT).show()
+                }
+            })
     }
 
 }
-
-
-
-
-
-
-
