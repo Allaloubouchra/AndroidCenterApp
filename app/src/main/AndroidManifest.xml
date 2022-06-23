@@ -18,7 +18,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ListRecep"
+            android:name=".ListRecepActivity"
             android:exported="false"
             android:label="@string/title_activity_list_recep"
             android:theme="@style/Theme.CenterApp.NoActionBar" />

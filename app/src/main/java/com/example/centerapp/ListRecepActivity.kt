@@ -20,7 +20,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
 
-class ListRecep : AppCompatActivity() {
+class ListRecepActivity : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var layoutManager: LinearLayoutManager

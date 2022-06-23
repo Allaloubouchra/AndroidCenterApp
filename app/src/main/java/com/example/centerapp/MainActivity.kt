@@ -7,7 +7,6 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -85,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                         if (response.isSuccessful) {
                             val user = response.body()!!
                             if (user.user_type == "R")
-                                startActivity(Intent(applicationContext, ListRecep::class.java))
+                                startActivity(Intent(applicationContext, ListRecepActivity::class.java))
                             if (user.user_type == "D")
                                 startActivity(Intent(applicationContext, AddSurvey::class.java))
 //                            finish()
@@ -119,7 +118,7 @@ class MainActivity : AppCompatActivity() {
                         setLoggedIn(user.token)
                         apiKey = user.token
                         if (user.user_type == "R")
-                            startActivity(Intent(applicationContext, ListRecep::class.java))
+                            startActivity(Intent(applicationContext, ListRecepActivity::class.java))
                         if (user.user_type == "D")
                             startActivity(Intent(applicationContext, AddSurvey::class.java))
                     }
