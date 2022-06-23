@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
         app:cardBackgroundColor="@color/gray"
         app:cardCornerRadius="8dp">
 
@@ -30,40 +30,19 @@
                     android:id="@+id/textLastName"
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
-                    android:text="Nom"
+                    android:text="Patient"
                     android:textSize="30dp" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/patientName"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_centerVertical="true"
-                    android:textSize="30sp"
                     android:text="Bouchra"
-                    android:textColor="@color/red"/>
+                    android:textColor="@color/red"
+                    android:textSize="30sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textName"
-                    android:layout_width="match_parent"
-                    android:layout_height="49dp"
-                    android:text="Prénom"
-                    android:textSize="30dp" />
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:textSize="30sp"
-                    android:text="Allalou"
-                    android:textColor="@color/red"/>
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="200dp"
@@ -85,12 +64,12 @@
                         android:textSize="30dp" />
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/vaccineName"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:text="Cinovac"
-                        android:textSize="30sp"
-                        android:textColor="@color/red"/>
+                        android:textColor="@color/red"
+                        android:textSize="30sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -115,12 +94,12 @@
                         android:textSize="30dp" />
 
                     <TextView
-                        android:id="@+id/textView4"
-                        android:textSize="30sp"
+                        android:id="@+id/appointmentTime"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:text="15:00"
-                        android:textColor="@color/red"/>
+                        android:textColor="@color/red"
+                        android:textSize="30sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

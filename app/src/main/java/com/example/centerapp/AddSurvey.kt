@@ -1,6 +1,8 @@
 package com.example.centerapp
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -18,7 +20,7 @@ class AddSurvey : AppCompatActivity() {
     lateinit var button_newSurvey: Button
     lateinit var button_log_out: Button
 
-
+    private lateinit var sharedPreferences: SharedPreferences
 
     val TAG: String? = AddSurvey::class.simpleName
     private val getBarCode =
@@ -32,20 +34,21 @@ class AddSurvey : AppCompatActivity() {
     var barcode: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_survey)
         supportActionBar?.hide()
 
-        button_log_out = findViewById(R.id.logOut)
-        button_log_out.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
+        sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
 
+        button_log_out = findViewById(R.id.logOut)
+        button_log_out.setOnClickListener {
+            logout()
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
 
         button_newSurvey = findViewById(R.id.newSurvey)
         button_newSurvey.setOnClickListener { scanQrCode() }
-
-
     }
 
     private fun scanQrCode() {
@@ -91,5 +94,9 @@ class AddSurvey : AppCompatActivity() {
             Survey::class.java
         ).apply { putExtra("appointment", appointment) }
         startActivity(intent)
+    }
+
+    private fun logout() {
+        sharedPreferences.edit().clear().apply()
     }
 }
