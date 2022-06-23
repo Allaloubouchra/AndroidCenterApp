@@ -75,5 +75,6 @@ data class Vaccine(
     val center: Long,
     val vaccine: Long,
     val available: Boolean,
-    @SerializedName("vaccine_name") val vaccineName: String,
+    @SerializedName("vaccine_name") val vaccineName: String?,
+    val name:String?,
 ) : Serializable

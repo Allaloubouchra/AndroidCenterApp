@@ -9,6 +9,12 @@ interface AppointmentService {
     @GET("vaccination-appointment/{id}/")
     fun getAppointmentById(@Path("id") id: Long): Call<Appointment>
 
+    @GET("vaccination-appointment/appointment-calendar/")
+    fun getTodayAppointments(): Call<List<Appointment>>
+
+    @GET("vaccination-appointment/pending-appointments/")
+    fun getPendingAppointments(): Call<List<Appointment>>
+
     @PATCH("vaccination-appointment/{id}/")
     @JvmSuppressWildcards
     fun updateAppointment(@Path("id") id: Long, @Body() data: Map<String, Any>): Call<Appointment>

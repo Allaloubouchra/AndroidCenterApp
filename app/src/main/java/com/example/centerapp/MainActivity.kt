@@ -7,7 +7,6 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -79,7 +78,26 @@ class MainActivity : AppCompatActivity() {
 
         if (checkLoggedIn()) {
             apiKey = sharedPreferences.getString("api_key", null)
-            startActivity(Intent(applicationContext, AddSurvey::class.java))
+            userService.getUser()
+                .enqueue(object : Callback<User> {
+                    override fun onResponse(call: Call<User>, response: Response<User>) {
+                        if (response.isSuccessful) {
+                            val user = response.body()!!
+                            if (user.user_type == "R")
+                                startActivity(Intent(applicationContext, ListRecepActivity::class.java))
+                            if (user.user_type == "D")
+                                startActivity(Intent(applicationContext, AddSurvey::class.java))
+//                            finish()
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<User>, t: Throwable) {
+                        Toast.makeText(applicationContext, "Login Failed", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
+
         }
     }
 
@@ -100,7 +118,7 @@ class MainActivity : AppCompatActivity() {
                         setLoggedIn(user.token)
                         apiKey = user.token
                         if (user.user_type == "R")
-                            startActivity(Intent(applicationContext, ListRecep::class.java))
+                            startActivity(Intent(applicationContext, ListRecepActivity::class.java))
                         if (user.user_type == "D")
                             startActivity(Intent(applicationContext, AddSurvey::class.java))
                     }

@@ -1,6 +1,5 @@
 package com.example.centerapp
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -41,7 +40,7 @@ class SignIn : AppCompatActivity() {
         button_create_account.setOnClickListener {
             when {
                 radioButton1.isChecked -> startActivity(Intent(this, AddSurvey::class.java))
-                radioButton2.isChecked -> startActivity(Intent(this, ListRecep::class.java))
+                radioButton2.isChecked -> startActivity(Intent(this, ListRecepActivity::class.java))
             }
         }
 
