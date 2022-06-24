@@ -113,6 +113,7 @@
                     android:id="@+id/acceptAppointmentButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Mix"
                     android:text="Accepter"
                     android:textSize="24dp" />
 
@@ -120,6 +121,7 @@
                     android:id="@+id/declineAppointmentButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Mix"
                     android:text="Refuser"
                     android:textSize="24sp" />
             </LinearLayout>

@@ -8,6 +8,7 @@ import com.example.centerapp.ListRecepModel
 import com.example.centerapp.ListRecepAdapter
 import android.widget.ImageButton
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -24,6 +25,7 @@ class ListRecepActivity : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var layoutManager: LinearLayoutManager
+     lateinit var ConfirmAppointment: Button
 
     lateinit var adapter: ListRecepAdapter
     lateinit var imageButton1: ImageButton
@@ -45,6 +47,10 @@ class ListRecepActivity : AppCompatActivity() {
         setContentView(R.layout.activity_list_recep)
         imageButton1 = findViewById(R.id.imageButton1)
         recyclerView = findViewById(R.id.todayAppointmentsList)
+
+        ConfirmAppointment = findViewById(R.id.ConfirmAppointment)
+        ConfirmAppointment.setOnClickListener { startActivity(Intent(this, PendingAppointmentsActivity::class.java)) }
+
 
         imageButton1.setOnClickListener { scanQrCode() }
 

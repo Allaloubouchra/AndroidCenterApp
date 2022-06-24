@@ -34,6 +34,10 @@
         <activity
             android:name=".SignIn"
             android:exported="false" />
+        <activity
+            android:name=".PendingAppointmentsActivity"
+            android:exported="false" />
+
 
         <activity
             android:name=".ScannerActivity"

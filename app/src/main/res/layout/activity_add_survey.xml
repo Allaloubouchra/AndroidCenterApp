@@ -87,8 +87,8 @@
             <Button
                 android:id="@+id/newSurvey"
                 android:layout_width="280dp"
-                android:layout_height="201dp"
-                android:layout_marginTop="56dp"
+                android:layout_height="247dp"
+                android:layout_marginTop="108dp"
                 android:backgroundTint="@color/Mix"
                 android:fontFamily="@font/roboto"
                 android:gravity="bottom|center"
@@ -98,7 +98,6 @@
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
