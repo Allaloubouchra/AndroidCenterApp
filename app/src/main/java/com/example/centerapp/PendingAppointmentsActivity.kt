@@ -21,8 +21,9 @@ class PendingAppointmentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pending_appointments)
 
-        pendingAppointmentsList = findViewById(R.id.pendingAppointmentsList)
 
+        pendingAppointmentsList = findViewById(R.id.pendingAppointmentsList)
+        initRecyclerView()
     }
 
 

@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var password: EditText
 
     private lateinit var loginButton: Button
-    private lateinit var createAccountButton: Button
 
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -50,15 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         userService = RetrofitClient.client.create(UserService::class.java)
 
-        createAccountButton = findViewById(R.id.CreateAccount)
-        createAccountButton.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    SignIn::class.java
-                )
-            )
-        }
+
 
         username.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}

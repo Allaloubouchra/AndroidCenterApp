@@ -42,7 +42,21 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent">
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/login_image_loginApp"
+                    android:layout_width="117dp"
+                    android:layout_height="113dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="160dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="160dp"
+                    android:layout_marginBottom="30dp"
+                    android:src="@drawable/dz" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textView5"
@@ -51,7 +65,7 @@
                 android:fontFamily="@font/courgette"
                 android:text="Bienvenue Docteur"
                 android:textColor="#2E7CB9"
-                android:textSize="40dp"
+                android:textSize="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -65,7 +79,7 @@
                 android:gravity="center"
                 android:text="Acceuil"
                 android:textColor="#2E7CB9"
-                android:textSize="40dp"
+                android:textSize="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -73,21 +87,21 @@
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="133dp"
-                android:layout_height="114dp"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
                 android:elevation="19dp"
                 app:layout_constraintBottom_toBottomOf="@+id/newSurvey"
                 app:layout_constraintEnd_toEndOf="@+id/newSurvey"
-                app:layout_constraintHorizontal_bias="0.521"
+                app:layout_constraintHorizontal_bias="0.52"
                 app:layout_constraintStart_toStartOf="@+id/newSurvey"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.839"
+                app:layout_constraintVertical_bias="0.861"
                 app:srcCompat="@drawable/ic_survey" />
 
             <Button
                 android:id="@+id/newSurvey"
-                android:layout_width="280dp"
-                android:layout_height="247dp"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="108dp"
                 android:backgroundTint="@color/Mix"
                 android:fontFamily="@font/roboto"
@@ -96,20 +110,20 @@
                 android:text="Ajouter\nquestionnaire"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <Button
                 android:id="@+id/logOut"
-                android:layout_width="452dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:backgroundTint="@color/Mix"
                 android:text="se déconnecter"
                 android:textColor="#FFFFFF"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.522"
