@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="206dp">
+    android:layout_height="220dp">
 
     <LinearLayout
         android:layout_width="800dp"
-        android:layout_height="200dp"
+        android:layout_height="170dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="25dp"
@@ -110,12 +110,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="145dp"
         android:layout_marginRight="40dp"
 
         android:background="@color/white"
@@ -125,7 +125,7 @@
             android:id="@+id/acceptAppointmentButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="5dp"
             android:backgroundTint="@color/Mix"
             android:text="Accepter"
             android:textSize="20dp"
@@ -147,15 +147,17 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="6dp" />
     </RelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
         android:background="@color/gray"
         app:cardCornerRadius="8dp">
+
     </View>
 
 </RelativeLayout>

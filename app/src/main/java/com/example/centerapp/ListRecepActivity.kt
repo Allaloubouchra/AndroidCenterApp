@@ -1,6 +1,8 @@
 package com.example.centerapp
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +11,7 @@ import com.example.centerapp.ListRecepAdapter
 import android.widget.ImageButton
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -26,6 +29,10 @@ class ListRecepActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var layoutManager: LinearLayoutManager
      lateinit var ConfirmAppointment: Button
+
+    lateinit var button_log_out: TextView
+    private lateinit var sharedPreferences: SharedPreferences
+
 
     lateinit var adapter: ListRecepAdapter
     lateinit var imageButton1: ImageButton
@@ -50,10 +57,20 @@ class ListRecepActivity : AppCompatActivity() {
 
         ConfirmAppointment = findViewById(R.id.ConfirmAppointment)
         ConfirmAppointment.setOnClickListener { startActivity(Intent(this, PendingAppointmentsActivity::class.java)) }
-
-
         imageButton1.setOnClickListener { scanQrCode() }
 
+        sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+        button_log_out = findViewById(R.id.SeDeconnecter)
+        button_log_out.setOnClickListener {
+            logout()
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+
+    }
+
+    private fun logout() {
+        sharedPreferences.edit().clear().apply()
     }
 
     override fun onResume() {

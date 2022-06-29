@@ -43,6 +43,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+
                 <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/login_image_loginApp"
                     android:layout_width="117dp"
