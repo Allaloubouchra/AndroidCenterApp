@@ -48,7 +48,7 @@ class AddSurvey : AppCompatActivity() {
         }
 
         button_newSurvey = findViewById(R.id.newSurvey)
-        button_newSurvey.setOnClickListener { service.getAppointmentById(19)
+        button_newSurvey.setOnClickListener { service.getAppointmentById(23)
             .enqueue(object : Callback<Appointment> {
                 override fun onResponse(
                     call: Call<Appointment>,

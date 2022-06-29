@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,434 +11,413 @@
     app:layout_constraintTop_toTopOf="parent"
     tools:context=".Survey">
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="164dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:height="50dp"
+            android:background="@color/Mix"
+            android:fontFamily="@font/courgette"
+            android:gravity="center"
+            android:text="Information Personnelle"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="-8dp" />
 
-            <TextView
-                android:id="@+id/textView2"
+        <EditText
+            android:id="@+id/fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:hint="Nom"
+            android:inputType="text"
+            android:textColor="#2754DB"
+            android:textColorHint="@color/blue"
+            android:layout_below="@+id/textView2"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <EditText
+            android:id="@+id/dateOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="Date de naissance"
+            android:inputType="text"
+            android:layout_below="@+id/fullName"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fullName" />
+
+
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:height="50dp"
-                android:background="@color/Mix"
-                android:fontFamily="@font/courgette"
-                android:gravity="center"
-                android:text="Information Personnelle"
-                android:textColor="@color/white"
-                android:textSize="40dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:layout_editor_absoluteY="-8dp" />
-
-
-            <EditText
-                android:id="@+id/fullName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:hint=" Nom"
-                android:inputType="text"
-                android:textColor="#2754DB"
-                android:textColorHint="#2754DB"
-                android:textSize="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-            <EditText
-                android:id="@+id/dateOfBirth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:hint="Date de naissance"
-                android:inputType="text"
-                android:textColor="#2754DB"
-                android:textColorHint="#2754DB"
-                android:textSize="30dp"
-                app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fullName" />
-
-            <RelativeLayout
-                android:id="@+id/relativeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fullName"
-                app:layout_constraintVertical_bias="0.101">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#2754DB">
-
-                            <TextView
-                                android:layout_width="398dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="2"
-                                android:background="@color/Mix"
-                                android:fontFamily="@font/courgette"
-                                android:gravity="center_horizontal"
-                                android:padding="10sp"
-                                android:text="@string/col1"
-                                android:textColor="@color/white"
-                                android:textSize="40sp" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:background="@color/Mix"
-                                android:fontFamily="@font/courgette"
-                                android:gravity="center_horizontal"
-                                android:padding="10sp"
-                                android:text="@string/col2"
-                                android:textColor="@color/white"
-                                android:textSize="40sp" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:background="@color/Mix"
-                                android:fontFamily="@font/courgette"
-                                android:gravity="center_horizontal"
-                                android:padding="10sp"
-                                android:text="@string/col3"
-                                android:textColor="@color/white"
-                                android:textSize="40sp" />
-                        </TableRow>
-
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-
-                            <TextView
-                                android:layout_width="382dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:gravity="left"
-                                android:padding="10sp"
-                                android:text="Avez-vous eu la Covid-19?"
-                                android:textColor="@color/black"
-                                android:textSize="25dp" />
-
-                            <RadioGroup
-                                android:id="@+id/covidAffected"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-
-                                <RadioButton
-                                    android:id="@+id/covidAffectedYes"
-                                    android:layout_width="150dp"
-                                    android:layout_height="match_parent"
-                                    android:buttonTint="@color/Mix" />
-
-                                <RadioButton
-                                    android:id="@+id/radioButton2"
-                                    android:layout_width="151dp"
-                                    android:layout_height="54dp"
-                                    android:buttonTint="@color/Mix" />
-                            </RadioGroup>
-                        </TableRow>
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp">
-
-                            <TextView
-                                android:layout_width="261dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:gravity="left"
-                                android:padding="10sp"
-                                android:text="Êtes-vous en contact avec un patient \natteint de la COVID-19?"
-                                android:textColor="@color/black"
-                                android:textSize="25dp" />
-
-                            <RadioGroup
-                                android:id="@+id/covidContact"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <RadioButton
-                                    android:id="@+id/covidContactYes"
-                                    android:layout_width="150dp"
-                                    android:layout_height="72dp"
-                                    android:buttonTint="@color/Mix" />
-
-                                <RadioButton
-                                    android:id="@+id/radioButton4"
-                                    android:layout_width="153dp"
-                                    android:layout_height="match_parent"
-                                    android:buttonTint="@color/Mix" />
-                            </RadioGroup>
-
-                        </TableRow>
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:layout_width="261dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:gravity="left"
-                                android:padding="10sp"
-                                android:text="Avez_vous des antécédents pathologiques?"
-                                android:textColor="@color/black"
-                                android:textSize="25dp" />
-
-                            <RadioGroup
-                                android:id="@+id/pathoRadioGroup"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <RadioButton
-                                    android:id="@+id/radioButton5"
-                                    android:layout_width="154dp"
-                                    android:layout_height="match_parent"
-                                    android:buttonTint="@color/Mix" />
-
-                                <RadioButton
-                                    android:id="@+id/radioButton6"
-                                    android:layout_width="143dp"
-                                    android:layout_height="match_parent"
-                                    android:buttonTint="@color/Mix" />
-                            </RadioGroup>
-                        </TableRow>
-                    </TableLayout>
-                </LinearLayout>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="555dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-                app:layout_constraintVertical_bias="0.0">
-
-                <Spinner
-                    android:id="@+id/spinnertens"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="274dp"
-                    android:layout_marginEnd="60dp"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:entries="@array/array_tansion"
-                    android:spinnerMode="dropdown" />
+                android:background="@color/blue">
 
                 <TextView
-                    android:id="@+id/textTemp"
-                    android:layout_width="368dp"
-                    android:layout_height="45dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="-343dp"
-                    android:layout_marginBottom="393dp"
-                    android:text="Température"
-                    android:textColor="@color/black"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:background="@color/Mix"
+                    android:fontFamily="@font/courgette"
+                    android:gravity="center_horizontal"
+                    android:padding="10sp"
+                    android:text="@string/col1"
+                    android:textColor="@color/white"
                     android:textSize="25sp" />
 
                 <TextView
-                    android:id="@+id/textFreqCar"
-                    android:layout_width="358dp"
-                    android:layout_height="59dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="-303dp"
-                    android:layout_marginBottom="290dp"
-                    android:text="Fréquence cardiaque"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@color/Mix"
+                    android:fontFamily="@font/courgette"
+                    android:gravity="center_horizontal"
+                    android:padding="10sp"
+                    android:text="@string/col2"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/textFreqRes"
-                    android:layout_width="368dp"
-                    android:layout_height="45dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginEnd="-302dp"
-                    android:layout_marginBottom="128dp"
-                    android:text="Fréquence respiratoire"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@color/Mix"
+                    android:fontFamily="@font/courgette"
+                    android:gravity="center_horizontal"
+                    android:padding="10sp"
+                    android:text="@string/col3"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="13dp">
 
                 <TextView
-                    android:id="@+id/textTans"
-                    android:layout_width="292dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginBottom="204dp"
-                    android:text="Tension artérille"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:paddingLeft="10dp"
+                    android:text="Avez-vous eu la Covid-19?"
                     android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:textSize="20dp" />
 
-                <TextView
-                    android:id="@+id/textSatu"
+                <RadioGroup
+                    android:id="@+id/covidAffected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="34dp"
-                    android:layout_marginEnd="-202dp"
-                    android:layout_marginBottom="488dp"
-                    android:text="Saturation"
+                    android:orientation="horizontal"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/covidAffectedYes"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:buttonTint="@color/blue" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/blue"
+                        android:layout_weight="2"/>
+                </RadioGroup>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="242dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:paddingLeft="15dp"
+                    android:gravity="left"
+                    android:text="Êtes-vous en contact avec un patient \natteint de la COVID-19?"
                     android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:textSize="20dp" />
 
-                <Spinner
-                    android:id="@+id/spinnerSatur"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="31dp"
-                    android:layout_marginEnd="60dp"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:entries="@array/array_satura"
-                    android:spinnerMode="dropdown"
-                    android:tooltipText="Temperature" />
+                <RadioGroup
+                    android:id="@+id/covidContact"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <Spinner
-                    android:id="@+id/spinnerTem"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="108dp"
-                    android:layout_marginEnd="60dp"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:entries="@array/array_temp"
-                    android:spinnerMode="dropdown" />
+                    <RadioButton
+                        android:id="@+id/covidContactYes"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:buttonTint="@color/blue" />
 
-                <Spinner
-                    android:id="@+id/spinnerFreqCar"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="194dp"
-                    android:layout_marginEnd="60dp"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:entries="@array/array_freq_cardi"
-                    android:spinnerMode="dropdown" />
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:buttonTint="@color/Mix" />
+                </RadioGroup>
 
-                <Spinner
-                    android:id="@+id/spinnerFreqRes"
-                    android:layout_width="200dp"
-                    android:layout_height="64dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="373dp"
-                    android:layout_marginEnd="60dp"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:entries="@array/array_freq_respi"
-                    android:spinnerMode="dropdown" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp">
 
-                <Button
-                    android:id="@+id/annuler"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginEnd="583dp"
-                    android:layout_marginBottom="4dp"
-                    android:backgroundTint="@color/Mix"
-                    android:fontFamily="@font/courgette"
-                    android:text="Retour"
-                    android:textSize="30sp" />
+                <TextView
+                    android:layout_width="245dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:paddingLeft="15dp"
+                    android:gravity="left"
+                    android:text="Avez_vous des antécédents pathologiques?"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
 
-                <Button
-                    android:id="@+id/cancelButton"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginEnd="311dp"
-                    android:layout_marginBottom="4dp"
-                    android:backgroundTint="@color/Mix"
-                    android:fontFamily="@font/courgette"
-                    android:text="Annuler"
-                    android:textSize="30sp" />
-
-                <Button
-                    android:id="@+id/validateButton"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginEnd="44dp"
-                    android:layout_marginBottom="7dp"
-                    android:backgroundTint="@color/Mix"
-                    android:fontFamily="@font/courgette"
-                    android:text="Valider"
-                    android:textSize="30sp" />
-            </RelativeLayout>
+                <RadioGroup
+                    android:id="@+id/pathoRadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="center"
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/radioButton5"
+                        android:layout_width="70dp"
+                        android:layout_weight="3"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/Mix" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton6"
+                        android:layout_width="40dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/Mix" />
+                </RadioGroup>
+            </TableRow>
+        </TableLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="555dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <Spinner
+                android:id="@+id/spinnertens"
+                android:layout_width="165dp"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="274dp"
+                android:layout_marginEnd="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:entries="@array/array_tansion"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:id="@+id/textTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="-343dp"
+                android:layout_marginBottom="393dp"
+                android:text="Température"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textFreqCar"
+                android:layout_width="wrap_content"
+                android:layout_height="59dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="-303dp"
+                android:layout_marginBottom="290dp"
+                android:text="Fréquence cardiaque"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textFreqRes"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="-302dp"
+                android:layout_marginBottom="128dp"
+                android:text="Fréquence respiratoire"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textTans"
+                android:layout_width="165dp"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="204dp"
+                android:text="Tension artérille"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textSatu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="-202dp"
+                android:layout_marginBottom="482dp"
+                android:text="Saturation"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinnerSatur"
+                android:layout_width="165dp"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:entries="@array/array_satura"
+                android:spinnerMode="dropdown"
+                android:tooltipText="Temperature" />
+
+            <Spinner
+                android:id="@+id/spinnerTem"
+                android:layout_width="165dp"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="108dp"
+                android:layout_marginEnd="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:entries="@array/array_temp"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/spinnerFreqCar"
+                android:layout_width="165dp"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="194dp"
+                android:layout_marginEnd="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:entries="@array/array_freq_cardi"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/spinnerFreqRes"
+                android:layout_width="165dp"
+                android:layout_height="64dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="365dp"
+                android:layout_marginEnd="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:entries="@array/array_freq_respi"
+                android:spinnerMode="dropdown" />
+
+
+            <Button
+                android:id="@+id/annuler"
+                android:layout_width="232dp"
+                android:layout_height="54dp"
+                android:layout_alignEnd="@+id/spinnerFreqRes"
+
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="250dp"
+                android:layout_marginEnd="69dp"
+                android:layout_marginBottom="7dp"
+                android:backgroundTint="@color/Mix"
+                android:fontFamily="@font/courgette"
+                android:text="Retour"
+                android:textSize="23sp" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="150dp"
+                android:layout_height="58dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="224dp"
+                android:layout_marginBottom="56dp"
+                android:backgroundTint="@color/Mix"
+                android:fontFamily="@font/courgette"
+                android:text="Annuler"
+                android:textSize="23sp" />
+
+            <Button
+                android:id="@+id/validateButton"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="53dp"
+                android:backgroundTint="@color/Mix"
+                android:fontFamily="@font/courgette"
+                android:text="Valider"
+                android:textSize="23sp" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>
+
