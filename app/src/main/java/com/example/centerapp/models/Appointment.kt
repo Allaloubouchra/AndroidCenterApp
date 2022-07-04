@@ -21,7 +21,7 @@ data class Appointment(
     @SerializedName("get_status_display")
     val statusDisplay: String,
     val centre: Center?,
-    val forToday: Boolean = false,
+    val forToday: Boolean = true,
 ) : Serializable {
 
     override fun equals(other: Any?): Boolean {

@@ -1,6 +1,7 @@
 package com.example.centerapp
 
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +23,11 @@ class ListRecepAdapter(var appointmentsList: List<Appointment>) :
         holder.patientName.text = appointment.patient.fullName
         holder.vaccineName.text = appointment.vaccine.name
         holder.appointmentTime.text = appointment.appointmentDate.toLocaleString()
-        if (appointment.forToday) holder.view?.setBackgroundColor(Color.GREEN)
+        Log.d("***************", "onBindViewHolder: Hello there ${appointment.forToday}")
+        if (appointment.forToday) {
+            Log.d("***************", "onBindViewHolder: hello green world")
+            holder.view?.setBackgroundColor(Color.GREEN)
+        }
     }
 
     override fun getItemCount(): Int {

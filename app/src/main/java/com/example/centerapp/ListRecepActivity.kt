@@ -49,6 +49,8 @@ class ListRecepActivity : AppCompatActivity() {
         )
     var barcode: String = ""
 
+    private var isScanning = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_recep)
@@ -85,7 +87,10 @@ class ListRecepActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        initRecyclerView()
+        if (!isScanning) {
+            isScanning = false
+            initRecyclerView()
+        }
     }
 
     private fun initRecyclerView() {
@@ -115,6 +120,7 @@ class ListRecepActivity : AppCompatActivity() {
     }
 
     private fun scanQrCode() {
+        isScanning = true
         getBarCode.launch(Intent(applicationContext, ScannerActivity::class.java))
     }
 
@@ -123,23 +129,23 @@ class ListRecepActivity : AppCompatActivity() {
             if (result.data != null && result.data!!.getStringExtra("scanned_code") != null) {
                 barcode = result.data!!.getStringExtra("scanned_code")!!
                 if (barcode.toLongOrNull() != null) {
-                    if (appointmentsList.any { it.id == barcode.toLongOrNull() }) {
-                        val index =
-                            appointmentsList.indexOfFirst { it.id == barcode.toLongOrNull() }
-                        appointmentsList[index] = appointmentsList[index].copy(forToday = true)
-                        adapter.appointmentsList = appointmentsList
-                        adapter.notifyDataSetChanged()
-                        Toast.makeText(
-                            applicationContext,
-                            "Ce rendez vous est pour aujourd'hui",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else
-                        Toast.makeText(
-                            applicationContext,
-                            "Ce rendez vous n'est pas pour aujourd'hui",
-                            Toast.LENGTH_SHORT
-                        ).show()
+        if (appointmentsList.any { it.id == barcode.toLongOrNull() }) {
+            val index =
+                appointmentsList.indexOfFirst { it.id == barcode.toLongOrNull() }
+            appointmentsList[index] = appointmentsList[index].copy(forToday = true)
+            adapter.appointmentsList = appointmentsList
+            adapter.notifyDataSetChanged()
+            Toast.makeText(
+                applicationContext,
+                "Ce rendez vous est pour aujourd'hui",
+                Toast.LENGTH_SHORT
+            ).show()
+        } else
+            Toast.makeText(
+                applicationContext,
+                "Ce rendez vous n'est pas pour aujourd'hui",
+                Toast.LENGTH_SHORT
+            ).show()
                 }
 
             }
