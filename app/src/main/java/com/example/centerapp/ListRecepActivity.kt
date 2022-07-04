@@ -25,9 +25,9 @@ class ListRecepActivity : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var layoutManager: LinearLayoutManager
-     lateinit var ConfirmAppointment: Button
+    lateinit var ConfirmAppointment: Button
 
-    lateinit var adapter: ListRecepAdapter
+    val adapter: ListRecepAdapter = ListRecepAdapter(listOf())
     lateinit var imageButton1: ImageButton
 
     val appointmentsList = mutableListOf<Appointment>()
@@ -47,9 +47,17 @@ class ListRecepActivity : AppCompatActivity() {
         setContentView(R.layout.activity_list_recep)
         imageButton1 = findViewById(R.id.imageButton1)
         recyclerView = findViewById(R.id.todayAppointmentsList)
+        recyclerView.adapter = adapter
 
         ConfirmAppointment = findViewById(R.id.ConfirmAppointment)
-        ConfirmAppointment.setOnClickListener { startActivity(Intent(this, PendingAppointmentsActivity::class.java)) }
+        ConfirmAppointment.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    PendingAppointmentsActivity::class.java
+                )
+            )
+        }
 
 
         imageButton1.setOnClickListener { scanQrCode() }
@@ -71,8 +79,8 @@ class ListRecepActivity : AppCompatActivity() {
                     if (response.body() != null) {
                         appointmentsList.clear()
                         appointmentsList.addAll(response.body()!!)
-                        adapter = ListRecepAdapter(response.body()!!)
-                        recyclerView.adapter = adapter
+                        adapter.appointmentsList = appointmentsList
+                        adapter.notifyDataSetChanged()
                     }
                 }
             }
@@ -96,13 +104,18 @@ class ListRecepActivity : AppCompatActivity() {
             if (result.data != null && result.data!!.getStringExtra("scanned_code") != null) {
                 barcode = result.data!!.getStringExtra("scanned_code")!!
                 if (barcode.toLongOrNull() != null) {
-                    if (appointmentsList.any { it.id == barcode.toLongOrNull() })
+                    if (appointmentsList.any { it.id == barcode.toLongOrNull() }) {
+                        val index =
+                            appointmentsList.indexOfFirst { it.id == barcode.toLongOrNull() }
+                        appointmentsList[index] = appointmentsList[index].copy(forToday = true)
+                        adapter.appointmentsList = appointmentsList
+                        adapter.notifyDataSetChanged()
                         Toast.makeText(
                             applicationContext,
                             "Ce rendez vous est pour aujourd'hui",
                             Toast.LENGTH_SHORT
                         ).show()
-                    else
+                    } else
                         Toast.makeText(
                             applicationContext,
                             "Ce rendez vous n'est pas pour aujourd'hui",

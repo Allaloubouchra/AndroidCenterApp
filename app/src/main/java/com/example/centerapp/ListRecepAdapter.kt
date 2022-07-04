@@ -1,14 +1,14 @@
 package com.example.centerapp
 
-import androidx.recyclerview.widget.RecyclerView
-import android.view.ViewGroup
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.centerapp.models.Appointment
-import okhttp3.internal.notify
 
-class ListRecepAdapter(private val appointmentsList: List<Appointment>) :
+class ListRecepAdapter(var appointmentsList: List<Appointment>) :
     RecyclerView.Adapter<ListRecepAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,6 +22,7 @@ class ListRecepAdapter(private val appointmentsList: List<Appointment>) :
         holder.patientName.text = appointment.patient.fullName
         holder.vaccineName.text = appointment.vaccine.name
         holder.appointmentTime.text = appointment.appointmentDate.toLocaleString()
+        if (appointment.forToday) holder.view?.setBackgroundColor(Color.GREEN)
     }
 
     override fun getItemCount(): Int {

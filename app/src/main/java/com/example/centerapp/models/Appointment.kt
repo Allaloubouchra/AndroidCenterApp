@@ -20,8 +20,14 @@ data class Appointment(
     val status: String,
     @SerializedName("get_status_display")
     val statusDisplay: String,
-    val centre: Center?
-) : Serializable
+    val centre: Center?,
+    val forToday: Boolean = false,
+) : Serializable {
+
+    override fun equals(other: Any?): Boolean {
+        return if (other is Appointment) other.id == this.id else false
+    }
+}
 
 
 data class Account(
