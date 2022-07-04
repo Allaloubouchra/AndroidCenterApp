@@ -72,7 +72,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="244dp"
-                android:hint="Username"
+                android:hint="Nom utilisateur"
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/Mix"
                 android:textSize="20dp"
