@@ -48,27 +48,7 @@ class AddSurvey : AppCompatActivity() {
         }
 
         button_newSurvey = findViewById(R.id.newSurvey)
-        button_newSurvey.setOnClickListener { service.getAppointmentById(23)
-            .enqueue(object : Callback<Appointment> {
-                override fun onResponse(
-                    call: Call<Appointment>,
-                    response: Response<Appointment>
-                ) {
-                    if (response.isSuccessful && response.body() != null) {
-                        handleResponse(response.body()!!)
-                    }
-                }
-
-                override fun onFailure(call: Call<Appointment>, t: Throwable) {
-                    t.printStackTrace()
-                    Toast.makeText(
-                        applicationContext,
-                        "Rendez-vous introuvable",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-            }) }
+        button_newSurvey.setOnClickListener { scanQrCode() }
     }
 
     private fun scanQrCode() {
